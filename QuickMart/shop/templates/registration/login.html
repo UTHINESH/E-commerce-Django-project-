@@ -1,0 +1,30 @@
+{% extends 'shop/layouts/main.html' %}
+
+{% block title %}
+
+  Login | QuickMart
+
+{% endblock title %}
+
+{% block content %}
+
+{% load crispy_forms_tags %}
+
+<div class="text-dark container bg-grey shadow-lg p-5 form-layout" style="margin-top: 70px; margin-bottom: 70px; border: radius 10ch; width: 500px;"  >
+    <div class="row">
+        <div class="col-12"><h1>login Page</h1>
+        <hr style="border-color:#b8bfc2;">
+        {% include 'shop/inc/message.html' %}
+        <form  method="post" autocomplete="off">
+            {% csrf_token %}
+            {{form|crispy}}
+           <br><br>          
+            <input class="btn btn-primary navbar-btn" type="submit" value="Register"/>
+            <br><br>
+
+            <p>If you Don't have an account? <a href="{% url 'register' %}"> Register </a></p>
+        </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}
